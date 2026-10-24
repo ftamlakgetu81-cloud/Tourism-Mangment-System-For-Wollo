@@ -1,0 +1,239 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  color: #1e293b;
+  background-color: #ffffff;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@keyframes home-hero-image-enter {
+  from {
+    opacity: 0;
+    filter: blur(8px) brightness(0.75);
+    transform: scale(1.08);
+  }
+  to {
+    opacity: 1;
+    filter: blur(0) brightness(1.1);
+    transform: scale(1);
+  }
+}
+
+.home-hero-image {
+  animation: home-hero-image-enter 2000ms ease-in-out both;
+}
+
+@keyframes home-hero-image-exit {
+  from {
+    opacity: 1;
+    filter: blur(0) brightness(1.1);
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    filter: blur(8px) brightness(0.75);
+    transform: scale(1.08);
+  }
+}
+
+.home-hero-image-exit {
+  animation: home-hero-image-exit 2000ms ease-in-out both;
+}
+
+@keyframes about-hero-image-enter {
+  from {
+    transform: translateX(5%) scale(1.06);
+  }
+  to {
+    transform: translateX(0) scale(1);
+  }
+}
+
+.about-hero-image {
+  animation: about-hero-image-enter 1600ms cubic-bezier(0.2, 0.65, 0.3, 1) both;
+}
+
+@keyframes about-hero-label-enter {
+  from {
+    opacity: 0;
+    transform: translateX(72px) translateY(8px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) translateY(0) scale(1);
+  }
+}
+
+.about-hero-label {
+  animation: about-hero-label-enter 1000ms cubic-bezier(0.2, 0.65, 0.3, 1) both;
+}
+
+.about-hero-label-active {
+  box-shadow: 0 12px 32px rgb(2 8 23 / 35%);
+}
+
+.about-reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 800ms cubic-bezier(0.2, 0.65, 0.3, 1),
+    transform 800ms cubic-bezier(0.2, 0.65, 0.3, 1);
+}
+
+.about-reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.grid > .about-reveal:nth-child(2) {
+  transition-delay: 100ms;
+}
+
+.grid > .about-reveal:nth-child(3) {
+  transition-delay: 200ms;
+}
+
+.grid > .about-reveal:nth-child(4) {
+  transition-delay: 300ms;
+}
+
+@keyframes cultural-heritage-image-zoom {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.08);
+  }
+}
+
+.cultural-heritage-hero-image {
+  animation: cultural-heritage-image-zoom 24s ease-in-out infinite alternate;
+}
+
+.cultural-heritage-slide {
+  opacity: 0;
+  transition: opacity 2s ease-in-out;
+}
+
+.cultural-heritage-slide-active {
+  opacity: 1;
+}
+
+@keyframes cultural-festival-image-enter {
+  from {
+    opacity: 0.65;
+    transform: translateY(6px) scale(1.08);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.cultural-festival-image {
+  animation: cultural-festival-image-enter 900ms cubic-bezier(0.2, 0.65, 0.3, 1) both;
+}
+
+.cultural-heritage-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: max(100%, 177.78vh);
+  height: max(100%, 56.25vw);
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+@keyframes hero-enter {
+  from {
+    opacity: 0;
+    filter: blur(5px);
+    transform: translateX(100vw) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateX(0) scale(1);
+  }
+}
+
+.hero-enter {
+  animation: hero-enter 2000ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.hero-enter-delay-1 {
+  animation-delay: 150ms;
+}
+
+.hero-enter-delay-2 {
+  animation-delay: 300ms;
+}
+
+.hero-enter-delay-3 {
+  animation-delay: 450ms;
+}
+
+.hero-enter-delay-4 {
+  animation-delay: 600ms;
+}
+
+@keyframes hero-loop {
+  0% {
+    opacity: 0;
+    transform: translateX(2.5rem);
+  }
+  35%,
+  72% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-2.5rem);
+  }
+}
+
+.hero-loop {
+  animation: hero-loop 2s ease-in-out infinite;
+}
+
+.hero-loop-delay {
+  animation-delay: 180ms;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-enter,
+  .hero-loop,
+  .home-hero-image,
+  .home-hero-image-exit,
+  .about-hero-image,
+  .about-hero-label,
+  .cultural-heritage-hero-image,
+  .cultural-heritage-slide,
+  .cultural-festival-image {
+    animation: none;
+    filter: none;
+    transform: none;
+    opacity: 1;
+    transition: none;
+  }
+
+  .about-reveal,
+  .about-reveal.is-visible {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .about-hero-label,
+  .about-hero-label-active {
+    transform: none;
+    transition: none;
+  }
+}

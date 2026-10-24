@@ -1,0 +1,13 @@
+{
+  "name": "tourism-management-system",
+  "private": true,
+  "scripts": {
+    "dev": "npm --prefix frontend run dev",
+    "dev:server": "npm --prefix server run dev",
+    "build": "npm --prefix frontend run build",
+    "lint": "npm --prefix frontend run lint"
+  },
+  "dependencies": {
+    "react-router-dom": "^7.18.4"
+  }
+}
